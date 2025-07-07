@@ -1,0 +1,149 @@
+/* ============ start custom modal ================= */
+.modal-small {
+    max-width: 300px;
+}
+
+.modal-normal {
+    max-width: 600px;
+}
+
+.modal-big {
+    max-width: 900px;
+}
+
+.modal-bigest {
+    max-width: 1200px;
+}
+
+
+/* The Modal */
+.custom-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 50px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Modal Content */
+.modal-content {
+    margin: 5% auto;
+    /* max-width: 500px; */
+    width: 90%;
+    border-radius: 10px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transform: scale(0.9);
+    animation: modalOpen 0.3s forwards;
+}
+
+@keyframes modalOpen {
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Modal Header */
+.modal-header {
+    padding: 15px 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: white;
+}
+
+.close-modal {
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.close-modal:hover {
+    transform: rotate(90deg);
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 20px;
+    max-height: 450px;         /* or any height you want */
+    overflow-y: auto; 
+}
+
+/* Modal Footer */
+.modal-footer {
+    padding: 10px 10px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    border-top: 1px solid #eee;
+}
+
+.modal-btn {
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.cancel-btn {
+    background: #f8f9fa;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.cancel-btn:hover {
+    background: #e9ecef;
+}
+
+.confirm-btn {
+    background:rgb(9, 76, 144);
+    color: white;
+    border: none;
+}
+
+.confirm-btn:hover {
+    background: linear-gradient(135deg,rgb(4, 32, 57),rgb(9, 68, 136));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 166, 81, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+    .modal-content {
+        margin: 10% auto;
+    }
+
+    .modal-footer {
+        flex-direction: row;
+    }
+
+    .modal-btn {
+        width: 100%;
+    }
+}
+
+/* ============ end custom modal ==================== */
