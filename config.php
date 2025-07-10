@@ -31,6 +31,7 @@ $color="secondary";
 $share = array("Editor","Viewer");
 $usertype=array('Admin','User');
 $companykey = "E258AF866BB444E6A116C52B24DAB7C5";
+$secretID = "833633";
 
 function load_username(){
     global $con;

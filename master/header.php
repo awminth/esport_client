@@ -716,7 +716,7 @@
         text-decoration: none;
     }
 
-    . remember-forgot {
+    .remember-forgot {
         display: flex;
         justify-content: space-between;
         font-size: 0.85rem;

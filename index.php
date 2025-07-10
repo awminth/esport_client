@@ -49,7 +49,7 @@
 
 <h2 class="carousel-title" style="padding-top:20px;">WHAT GAME DO YOU WANT TO PLAY? </h2>
 <div class="card-container">
-    <div class="card" id="sportone" style="cursor:pointer;">
+    <div class="card" id="ibet" style="cursor:pointer;">
         <img src="<?php echo roothtml.'lib/img/ibet789.jpg'?>" alt="Card 1">
         <div class="card-label">IBET 789</div>
     </div>
@@ -94,6 +94,7 @@
 <?php include(root."master/footer.php"); ?>
 <script>
 $(document).ready(function() {
+    
     $(document).on("click", "#sportone", function(e) {
         e.preventDefault();
         $.ajax({
@@ -114,7 +115,7 @@ $(document).ready(function() {
 
                         // Redirect to the login URL
                         window.location.href =
-                            "<?= roothtml . 'pages/sportibet789.php' ?>" +
+                            "<?= roothtml . 'pages/livecasino.php' ?>" +
                             "?target_url=" + encodeURIComponent(redirectUrl);
                     } else if (data == 404) {
                         location.href = "<?= roothtml . 'login/login.php' ?>";
@@ -168,7 +169,59 @@ $(document).ready(function() {
 
                         // Redirect to the login URL
                         window.location.href =
-                            "<?= roothtml . 'pages/sportibet789.php' ?>" +
+                            "<?= roothtml . 'pages/livecasino.php' ?>" +
+                            "?target_url=" + encodeURIComponent(redirectUrl);
+                    } else if (data == 404) {
+                        location.href = "<?= roothtml . 'login/login.php' ?>";
+                    } else {
+                        console.log("Error data", jsonData);
+                        showToast({
+                            type: 'error',
+                            title: 'Error!',
+                            message: 'Login Failed!',
+                            duration: 2000
+                        });
+                    }
+                } catch (err) {
+                    console.error("Invalid JSON:", err, data);
+                    showToast({
+                        type: 'error',
+                        title: 'Error!',
+                        message: 'Unexpected server response!',
+                        duration: 2000
+                    });
+                }
+            },
+            error: function() {
+                showToast({
+                    type: 'error',
+                    title: 'Error!',
+                    message: 'Server error occurred!',
+                    duration: 2000
+                });
+            }
+        });
+    });
+
+    $(document).on("click", "#ibet", function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: "post",
+            url: "<?php echo roothtml . 'index_action.php' ?>",
+            data: {
+                action: 'ibetlogin'
+            },
+            success: function(data) {
+                try {
+                    // Parse JSON response
+                    var jsonData = typeof data === "string" ? JSON.parse(data) : data;
+
+                    if (jsonData.status === "success") {
+                        let redirectUrl = jsonData.redirect_url;
+
+                        // Redirect to the login URL
+                        window.location.href =
+                            "<?= roothtml . 'pages/ibet.php' ?>" +
                             "?target_url=" + encodeURIComponent(redirectUrl);
                     } else if (data == 404) {
                         location.href = "<?= roothtml . 'login/login.php' ?>";

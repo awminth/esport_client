@@ -95,7 +95,7 @@ $(document).ready(function() {
                         let redirectUrl = jsonData.redirect_url;
 
                         // Redirect to the login URL
-                        window.location.href = "<?= roothtml.'pages/sportibet789.php'?>" +
+                        window.location.href = "<?= roothtml.'pages/livecasino.php'?>" +
                             "?target_url=" + encodeURIComponent(redirectUrl);
                     } else if (data == 404) {
                         location.href = "<?=roothtml.'login/login.php'?>";
