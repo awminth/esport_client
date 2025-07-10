@@ -50,7 +50,7 @@ if($action == "show_quiz"){
     $playerid = $_SESSION["esportclient_userid"];
     // Check if today is Friday
     $today = date('l'); // "Monday","Friday"
-    if ($today !== "Friday") {
+    if ($today !== "Tuesday") {
         echo "<p style='color:#ffe10a;padding:50px;' align='center'>
                 <i class='fas fa-award' style='font-size:25px;color:#ffe10a;padding-right:5px;'></i>
                  Quizes can only be taken every Friday.</p>";
