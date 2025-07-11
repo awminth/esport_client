@@ -13,6 +13,7 @@ if($action=="register"){
     $nrc=$_POST["nrc"];
     $agentid=$_POST["agentid"];
     $agentname=GetString("select UserName from tblagent where AID='{$agentid}'");
+    $ibagent = "ismmc1";
     $displayname = $_POST["displayname"];
     $dt = (new DateTime())->format('Y-m-d H:i:s');
     //Send data to API
@@ -103,16 +104,17 @@ if($action=="register"){
             if($data['error']['msg']=="No Error" && $data['error']['id']==0){
                 //insert local database
                 $sql = "insert into tblplayer (CompanyKey,ServerID,UserName,Password,PhoneNo,
-                Email,NRC,AgentName,AgentID,UserGroup,DisplayName,DT,secretID) 
-                values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                Email,NRC,AgentName,IbAgent,AgentID,UserGroup,DisplayName,DT,secretID) 
+                values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
                 $stmt = $con->prepare($sql);
                 if (!$stmt) {
                     throw new Exception("Prepare failed" . $con -> error);
                 }
 
-                $stmt->bind_param("ssssssssissss",$companykey, $serverid, $username, $password, $phoneno,
-                $email, $nrc, $agentname, $agentid, $usergp, $displayname, $dt, $secretID);
+                $stmt->bind_param("sssssssssissss",$companykey, $serverid, $username, $password, $phoneno,
+                $email, $nrc, $agentname, $ibagent, $agentid, $usergp, $displayname, $dt, $secretID);
+
   
 
                 if ($stmt->execute()) {
