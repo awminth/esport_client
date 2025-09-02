@@ -1,0 +1,61 @@
+
+<div class="toast-container" id="toastContainer"></div>
+
+
+Basic usage
+================
+showToast({
+    type: 'success', // 'success', 'error', 'warning', or 'info'
+    title: 'Success!',
+    message: 'Your action was completed successfully.',
+    duration: 3000 // in milliseconds (0 for no auto-dismiss)
+});
+
+// Success toast
+showToast({
+    type: 'success',
+    title: 'Success',
+    message: 'Operation completed'
+});
+
+// Error toast
+showToast({
+    type: 'error',
+    title: 'Error',
+    message: 'Something went wrong'
+});
+
+// Warning toast
+showToast({
+    type: 'warning',
+    title: 'Warning',
+    message: 'This action cannot be undone'
+});
+
+// Info toast
+showToast({
+    type: 'info',
+    title: 'Information',
+    message: 'New update available'
+});
+
+
+withour auto dismiss
+===========================
+showToast({
+    type: 'info',
+    title: 'Important',
+    message: 'This will stay until closed',
+    duration: 0 // won't auto-dismiss
+});
+
+
+without close button
+==========================
+showToast({
+    type: 'success',
+    title: 'Notification',
+    message: 'This will auto-close but cannot be manually closed',
+    closable: false,
+    duration: 2000
+});
