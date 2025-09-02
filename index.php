@@ -166,7 +166,7 @@ $(document).ready(function() {
 
                         // Redirect to the login URL
                         window.location.href =
-                            "<?= roothtml . 'pages/ibettest.php' ?>" +
+                            "<?= roothtml . 'pages/ibet.php' ?>" +
                             "?target_url=" + encodeURIComponent(redirectUrl);
                     } else if (data == 404) {
                         location.href = "<?= roothtml . 'login/login.php' ?>";

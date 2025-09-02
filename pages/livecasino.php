@@ -22,11 +22,7 @@
     <?php
         // ခွင့်ပြုထားတဲ့ domain စာရင်း
         $allowedDomains = [
-            '568win.com',
-            'ex-api-demo-yy.568win.com',
-            'ggppqqgg.com',
-            'sports-demo.ggppqqgg.com', // သင်သုံးနေတဲ့ domain
-            'lmd-uat.gaolitsai.com'      // သင်ထည့်လိုတဲ့ အသစ် domain
+            'wfcsweb.gm10099.com'
         ];
 
         // target_url parameter ရှိမရှိစစ်တယ်
